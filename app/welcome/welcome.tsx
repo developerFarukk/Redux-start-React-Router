@@ -17,7 +17,7 @@ export function Welcome() {
 
                 <div className="text-3xl">0</div>
 
-                <button className="bg-red-900 text-2xl text-white p-2 font-bold m-2 rounded-2xl">Decrement</button>
+                <button className="bg-red-900 text-2xl text-white p-2 font-bold m-2 rounded-2xl" > Decrement </button>
 
               </div>
 
