@@ -20,7 +20,7 @@ export function Welcome() {
                 <button className="bg-red-900 text-2xl text-white p-2 font-bold m-2 rounded-2xl" > Decrement </button>
 
               </div>
-
+              <p>ddddddddd</p>
             </div>
 
 
