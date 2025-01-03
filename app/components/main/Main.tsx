@@ -12,7 +12,7 @@ const Main = () => {
                             <h1 className="text-2xl text-center m-4">Counter With Redux</h1>
 
                             <div className="flex gap-6 items-center">
-                                <button className="bg-yellow-300 text-2xl text-blue-950 p-2 font-bold m-2 rounded-2xl">Increment</button>
+                                <button className="btn bg-yellow-300 text-2xl text-blue-950 p-2 font-bold m-2 rounded-2xl">Increment</button>
 
                                 <div className="text-3xl"> 0 </div>
 
