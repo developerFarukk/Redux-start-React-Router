@@ -13,6 +13,11 @@ export default defineConfig({
     },
   },
   plugins: [reactRouter(), tsconfigPaths()],
+  // server: {
+  //   hmr: {
+  //     overlay: false,
+  //   },
+  // },
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./app"),
