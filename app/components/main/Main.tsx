@@ -40,8 +40,6 @@ const handleDecrement = () => {
 
                             </div>
                         </div>
-
-
                     </div>
                 </header>
             </div>
