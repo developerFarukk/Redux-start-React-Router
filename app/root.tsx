@@ -11,6 +11,8 @@ import type { Route } from "./+types/root";
 import stylesheet from "./app.css?url";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
+import Navbar from "./components/pages/headers/Navbar";
+import { ThemeProvider } from "./components/providers/theme-provider";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -36,9 +38,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        <Provider store={store}>
-        {children}
-        </Provider>
+
+        <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+          <Provider store={store}>
+            {children}
+          </Provider>
+        </ThemeProvider>
+
         <ScrollRestoration />
         <Scripts />
       </body>
@@ -48,9 +54,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
 export default function App() {
   return (
-
+    <>
+      <Navbar></Navbar>
       <Outlet />
-   
+    </>
   );
 }
 

@@ -33,10 +33,14 @@ const Main = () => {
                             <h1 className="text-2xl text-center m-4">Counter With Redux</h1>
 
                             <div className="flex gap-6 items-center">
-                                <Button onClick={() => handleIncrement()} className="bg-yellow-700">Increment</Button>
+                                {/* Increment Button */}
+                                <Button
+                                    onClick={() => handleIncrement()}
+                                    className="bg-yellow-700">Increment</Button>
 
                                 <div className="text-3xl"> {count} </div>
 
+                                {/* Decrement Vutton */}
                                 <Button
                                     variant="destructive"
                                     onClick={() => handleDecrement()}
