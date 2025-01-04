@@ -14,7 +14,7 @@ const initialState: InitialState = {
             description: "Create Home page, and Roution",
             duedate: "2025-5-01",
             isCompleted: false,
-            priority: "High"
+            priority: "Low"
         },
         {
             id: "F147454244",
@@ -22,7 +22,7 @@ const initialState: InitialState = {
             description: "Create Home page, Page Card 222",
             duedate: "2025-5-01",
             isCompleted: false,
-            priority: "High"
+            priority: "Medium"
         }
     ]
 }

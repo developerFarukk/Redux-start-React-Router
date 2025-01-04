@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
+import { cn } from "@/lib/utils";
 import type { ITask } from "@/types/types";
 import { Trash2 } from "lucide-react";
 
@@ -14,7 +15,14 @@ const TaskCard = ({ task }: IProps) => {
                 <div className="flex justify-between items-center">
 
                     <div className="flex gap-2 items-center">
-                        <div className="size-3 rounded-full bg-green-500"></div>
+                        <div
+                            className={
+                                cn("size-3 rounded-full", {
+                                    "bg-green-500": task.priority === "Low",
+                                    "bg-yellow-500": task.priority === "Medium",
+                                    "bg-red-500": task.priority === "High",
+                                }
+                                )}></div>
                         <h1>{task.title}</h1>
                     </div>
 
@@ -27,7 +35,7 @@ const TaskCard = ({ task }: IProps) => {
                 </div>
                 <p className="mt-5"> {task.description}</p>
             </div>
-            
+
         </div>
     );
 };
