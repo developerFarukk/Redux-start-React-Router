@@ -1,25 +1,26 @@
 
 import { decrement, increment } from "../../redux/features/counterSlice";
 import { useAppDispatch, useAppSelector } from "../../redux/hook";
+import { Button } from "../ui/button";
 
 
 const Main = () => {
 
-const dispatch = useAppDispatch();
-const { count } = useAppSelector((state) => state.counter);
+    const dispatch = useAppDispatch();
+    const { count } = useAppSelector((state) => state.counter);
 
-// console.log(counter);
+    // console.log(counter);
 
-// Increment
-const handleIncrement = () => {
-    dispatch(increment(5))
-    
-}
+    // Increment
+    const handleIncrement = () => {
+        dispatch(increment(5))
 
-// Decrement
-const handleDecrement = () => {
-    dispatch(decrement(1))
-}
+    }
+
+    // Decrement
+    const handleDecrement = () => {
+        dispatch(decrement(1))
+    }
 
     return (
         <main className="flex items-center justify-center pt-16 pb-4">
@@ -32,12 +33,14 @@ const handleDecrement = () => {
                             <h1 className="text-2xl text-center m-4">Counter With Redux</h1>
 
                             <div className="flex gap-6 items-center">
-                                <button onClick={ () => handleIncrement() } className="btn bg-yellow-300 text-2xl text-blue-950 p-2 font-bold m-2 rounded-2xl">Increment</button>
+                                <Button onClick={() => handleIncrement()} className="bg-yellow-700">Increment</Button>
 
                                 <div className="text-3xl"> {count} </div>
 
-                                <button onClick={ () => handleDecrement() } className="bg-red-900 text-2xl text-white p-2 font-bold m-2 rounded-2xl" > Decrement </button>
-
+                                <Button
+                                    variant="destructive"
+                                    onClick={() => handleDecrement()}
+                                    className="bg-green-600 hover:bg-green-800" > Decrement </Button>
                             </div>
                         </div>
                     </div>
