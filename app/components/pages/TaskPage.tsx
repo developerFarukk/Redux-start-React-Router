@@ -14,7 +14,11 @@ const TaskPage = () => {
 
             {/* Card Task */}
             <div>
-                <TaskCard></TaskCard>
+                {
+                    tasks.map( (task) => (
+                        <TaskCard task={task} ></TaskCard>
+                    ))
+                }
             </div>
         </div>
     );
