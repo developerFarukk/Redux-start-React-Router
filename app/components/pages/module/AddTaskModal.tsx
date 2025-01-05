@@ -2,42 +2,34 @@
 import { Button } from "@/components/ui/button"
 import { Calendar } from "@/components/ui/calendar"
 import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
-// import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Textarea } from "@/components/ui/textarea"
 import { cn } from "@/lib/utils"
+import { addTask } from "@/redux/features/task/taskSlice"
+import { useAppDispatch } from "@/redux/hook"
+import type { ITask, priorityEnam } from "@/types/types"
 import { format } from "date-fns"
 import { CalendarIcon } from "lucide-react"
 
 import { useForm, type SubmitHandler } from "react-hook-form"
 
-enum priorityEnam {
-    high = "High",
-    medium = "Medium",
-    low = "Low",
-}
-
-interface ITaskInput {
-    title: string
-    description: string
-    priority: priorityEnam
-    dueDate: string
-}
-
 export function AddTaskModal() {
 
-    const { register, handleSubmit, setValue, watch, formState: { errors }, control } = useForm<ITaskInput>({
+    const dispatch = useAppDispatch();
+
+    const { register, handleSubmit, setValue, watch, formState: { errors }, control } = useForm<ITask>({
         defaultValues: {
             dueDate: new Date().toISOString(),
         },
         mode: "onBlur",
     })
 
-    const onSubmit: SubmitHandler<ITaskInput> = (data) => {
+    const onSubmit: SubmitHandler<ITask> = (data) => {
         console.log(data);
+        dispatch(addTask(data))
     };
 
     const selectedPriority = watch("priority");
