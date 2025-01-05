@@ -1,36 +1,34 @@
 
 import { Button } from "@/components/ui/button"
-import {
-    Dialog,
-    DialogContent,
-    // DialogDescription,
-    // DialogFooter,
-    DialogHeader,
-    DialogTitle,
-    DialogTrigger,
-} from "@/components/ui/dialog"
-// import { useForm } from "react-hook-form"
-// import { Form, FormControl, FormField, FormItem, FormLabel } from "@/components/ui/form"
-// import { Input } from "@/components/ui/input";
-// import { useForm, type SubmitHandler } from "react-hook-form";
+import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { Textarea } from "@/components/ui/textarea"
 
-// type Inputs = {
-//     title: string
-// }
+import { useForm, type SubmitHandler } from "react-hook-form"
+
+enum priorityEnam {
+    high = "High",
+    medium = "Medium",
+    low = "Low",
+}
+
+interface ITaskInput {
+    title: string
+    description: string
+    priority: priorityEnam
+}
 
 export function AddTaskModal() {
 
-    // const {handleSubmit, register,watch, formState: { errors }, form} = useForm<IArguments>();
+    const { register, handleSubmit, setValue, watch, formState: { errors } } = useForm<ITaskInput>()
 
-    // const form = useForm()
+    const onSubmit: SubmitHandler<ITaskInput> = (data) => {
+        console.log(data);
+    };
 
-    // const onSubmit = (data: any) => {
-    //     console.log(data);
-        
-    // }
-
-    // const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data)
-    // console.log(watch("example"))
+    const selectedPriority = watch("priority");
 
     return (
         <Dialog>
@@ -43,28 +41,54 @@ export function AddTaskModal() {
                 </DialogHeader>
 
                 {/* Form Page */}
-                {/* <Form {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)}>
-                        <FormField
-                            control={form.control}
-                            name="title"
-                            render={({ field }) => (
-                                <FormItem>
-                                    <FormLabel></FormLabel>
-                                    <FormControl>
-                                        <Input {...field} value={field.value || "" }></Input>
-                                    </FormControl>
-                                </FormItem>
-                            )}
-                        />
-                        <DialogFooter>
-                            <Button type="submit">Submit</Button>
-                        </DialogFooter>
-                    </form>
-                </Form> */}
+                <form onSubmit={handleSubmit(onSubmit)}>
 
+                    {/* Inpute Title */}
+                    <div className="p-1">
+                        <Label className="">Title</Label>
+                        <Input placeholder="Inpute task title" {...register("title", { required: "Title is required" })} />
+                        <div className="flex justify-end mt-1">
+                            <Label className={errors.title ? "text-red-700 text-sm" : "hidden"}>{errors.title?.message}</Label>
+                        </div>
+                    </div>
+
+                    {/* Description */}
+                    <div className="p-1">
+                        <Label>Description</Label>
+                        <Textarea placeholder="Inpute task description"  {...register("description", { required: "Description is Required" })} />
+                        <div className="flex justify-end mt-1">
+                            <Label className={errors.title ? "text-red-700 text-sm" : "hidden"}>{errors.description?.message}</Label>
+                        </div>
+                    </div>
+
+                    {/* Select Priority */}
+                    <div className="p-1 mt-2">
+                        <Select onValueChange={(value: priorityEnam) => setValue("priority", value)} value={selectedPriority} required >
+                            <SelectTrigger className="">
+                                <SelectValue placeholder="Select Priority" />
+                            </SelectTrigger>
+                            <SelectContent>
+                                <SelectGroup  >
+                                    <SelectLabel>Select Priority</SelectLabel>
+                                    <SelectItem value="High">High</SelectItem>
+                                    <SelectItem value="Medium">Medium</SelectItem>
+                                    <SelectItem value="Low">Low</SelectItem>
+                                </SelectGroup>
+                            </SelectContent>
+                        </Select>
+                    </div>
+
+                    {/* Submit */}
+                    <div className="p-1 mt-2">
+                        <DialogFooter>
+                            <Button type="submit" >Submit</Button>
+                        </DialogFooter>
+                    </div>
+
+                </form>
 
             </DialogContent>
         </Dialog>
     )
 }
+
