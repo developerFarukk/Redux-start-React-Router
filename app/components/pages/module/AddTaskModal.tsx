@@ -10,26 +10,25 @@ import { Textarea } from "@/components/ui/textarea"
 import { cn } from "@/lib/utils"
 import { addTask } from "@/redux/features/task/taskSlice"
 import { useAppDispatch } from "@/redux/hook"
-import type { ITask, priorityEnam } from "@/types/types"
+import type { DraftTask, ITask, priorityEnam } from "@/types/types"
 import { format } from "date-fns"
 import { CalendarIcon } from "lucide-react"
 
-import { useForm, type SubmitHandler } from "react-hook-form"
+import { useForm, type FieldValues, type SubmitHandler } from "react-hook-form"
 
 export function AddTaskModal() {
 
     const dispatch = useAppDispatch();
 
-    const { register, handleSubmit, setValue, watch, formState: { errors }, control } = useForm<ITask>({
+    const { register, handleSubmit, setValue, watch, formState: { errors }, control } = useForm<DraftTask>({
         defaultValues: {
             dueDate: new Date().toISOString(),
         },
         mode: "onBlur",
     })
 
-    const onSubmit: SubmitHandler<ITask> = (data) => {
-        console.log(data);
-        dispatch(addTask(data))
+    const onSubmit: SubmitHandler<FieldValues> = (data) => {
+        dispatch(addTask(data as ITask))
     };
 
     const selectedPriority = watch("priority");
