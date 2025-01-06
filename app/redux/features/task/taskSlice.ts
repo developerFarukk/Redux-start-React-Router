@@ -1,22 +1,24 @@
 import type { RootState } from "@/redux/store";
-import { priorityEnam, type DraftTask, type ITask } from "@/types/types";
+import { priorityEnam, type DraftTask, type filterTask, type ITask } from "@/types/types";
 import { createSlice, nanoid, type PayloadAction } from "@reduxjs/toolkit";
 
 interface InitialState {
     tasks: ITask[];
+    filterTask: filterTask;
 }
 
 const initialState: InitialState = {
     tasks: [
-        // {
-        //     id: "Fjsdjfhb89734fsd54fgsd",
-        //     title: "React Router 19",
-        //     description: "This is a new powerfull femwork",
-        //     dueDate: new Date(),
-        //     isCompleted: false,
-        //     priority: priorityEnam.high
-        // }
-    ]
+        {
+            id: "Fjsdjfhb89734fsd54fgsd",
+            title: "React Router 19",
+            description: "This is a new powerfull femwork",
+            dueDate: new Date(),
+            isCompleted: false,
+            priority: priorityEnam.high
+        }
+    ],
+    filterTask: "all"
 }
 
 const createTask = (taskData: DraftTask): ITask => {

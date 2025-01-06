@@ -1,8 +1,8 @@
 
 export enum priorityEnam {
-    high = "High",
-    medium = "Medium",
-    low = "Low",
+    high = "high",
+    medium = "medium",
+    low = "low",
 }
 
 
@@ -16,3 +16,5 @@ export interface ITask {
 }
 
 export type DraftTask = Pick<ITask, "title" | "description" | "priority" | "dueDate">;
+
+export type filterTask = "all" | "high" | "medium" | "low" ;
