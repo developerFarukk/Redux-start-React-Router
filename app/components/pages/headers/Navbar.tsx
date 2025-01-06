@@ -10,7 +10,7 @@ const Navbar = () => {
 
             <header className="bg-slate-200">
 
-                <div className="    sm:px-6 lg:px-8 max-w-7xl mx-auto h-16 flex items-center gap-3 px-5">
+                <div className=" sm:px-6 lg:px-8 max-w-7xl mx-auto h-16 flex items-center gap-3 px-5">
 
                     {/* Icon Button */}
                     <Link className="block text-teal-600" to="/">
@@ -27,10 +27,9 @@ const Navbar = () => {
 
                                 <Link className="" to="action" ><Button> Action</Button> </Link>
 
-                                {/* Theme */}
-                                <div>
-                                    <ModeToggle></ModeToggle>
-                                </div>
+                                <Link className="" to="users" ><Button> Users </Button> </Link>
+
+
                             </div>
 
                         </nav>
@@ -39,7 +38,13 @@ const Navbar = () => {
                             <div className="sm:flex sm:gap-4">
                                 <div className="flex items-center gap-6 text-lg justify-center lg:ml-24 md:ml-16 ml-12">
 
-                                    <Link className="" to="login" ><Button> Login </Button> </Link>
+                                    <div className="flex gap-4">
+                                        {/* Theme */}
+                                        <div>
+                                            <ModeToggle></ModeToggle>
+                                        </div>
+                                        <Link className="" to="login" ><Button> Login </Button> </Link>
+                                    </div>
 
                                 </div>
                             </div>

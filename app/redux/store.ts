@@ -8,6 +8,7 @@ export const store = configureStore({
     reducer: {
         counter: counterSlice,
         todo: taskReducer,
+        // user: userReducer
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger)
 })
