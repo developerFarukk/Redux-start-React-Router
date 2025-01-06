@@ -22,7 +22,7 @@ export function AddTaskModal() {
 
     const { register, handleSubmit, setValue, watch, formState: { errors }, control } = useForm<DraftTask>({
         defaultValues: {
-            dueDate: new Date().toISOString(),
+            dueDate: new Date(),
         },
         mode: "onBlur",
     })
@@ -32,11 +32,11 @@ export function AddTaskModal() {
     };
 
     const selectedPriority = watch("priority");
-    const selectedDate = watch("dueDate");
+    // const selectedDate = watch("dueDate");
 
     const handleDateChange = (date: Date | undefined) => {
         if (date) {
-            setValue("dueDate", date.toISOString());
+            setValue("dueDate", date);
         }
     };
 
@@ -114,7 +114,7 @@ export function AddTaskModal() {
                                     selected={watch("dueDate") ? new Date(watch("dueDate")) : undefined}
                                     onSelect={(date) => {
                                         if (date) {
-                                            setValue("dueDate", date.toISOString(), {
+                                            setValue("dueDate", date, {
                                                 shouldValidate: true,
                                             });
                                         }
