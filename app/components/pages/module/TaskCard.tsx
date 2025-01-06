@@ -28,14 +28,14 @@ const dispatch = useAppDispatch();
                                     "bg-red-500": task.priority === "High",
                                 }
                                 )}></div>
-                        <h1>{task.title}</h1>
+                        <h1 className={cn({"line-through" : task.isCompleted})} >{task.title}</h1>
                     </div>
 
                     <div className="flex gap-3 items-center">
                         <Button onClick={() => dispatch(deleteTask(task.id))} variant="link" className="p-1 text-red-500">
                             <Trash2></Trash2>
                         </Button>
-                        <Checkbox onClick={() => dispatch(toggleCompletedStatus(task.id))} ></Checkbox>
+                        <Checkbox checked={task.isCompleted} onClick={() => dispatch(toggleCompletedStatus(task.id))} ></Checkbox>
                     </div>
                 </div>
                 <p className="mt-5"> {task.description}</p>

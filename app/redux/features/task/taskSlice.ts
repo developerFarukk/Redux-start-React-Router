@@ -31,12 +31,14 @@ const taskSlice = createSlice({
             const taskData = createTask(action.payload);
             state.tasks.push(taskData)
         },
+
         // toggleCompletedStatus: (state, action: PayloadAction<string>) => {
         //     state.tasks.forEach((task) =>
         //         task.id = action.payload
         //             ? (task.isCompleted = !task.isCompleted) : task
         //     )
         // }
+
         toggleCompletedStatus: (state, action: PayloadAction<string>) => {
             state.tasks.forEach((task) => {
                 if (task.id === action.payload) {
@@ -44,6 +46,7 @@ const taskSlice = createSlice({
                 }
             });
         },
+
         deleteTask: (state, action: PayloadAction<string>) => {
             state.tasks = state.tasks.filter( (task) => task.id !== action.payload);
         }
