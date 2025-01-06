@@ -17,4 +17,9 @@ export interface ITask {
 
 export type DraftTask = Pick<ITask, "title" | "description" | "priority" | "dueDate">;
 
-export type filterTask = "all" | "high" | "medium" | "low" ;
+export enum filterTask {
+    All = "all",
+    High = "high",
+    Medium = "medium",
+    Low = "low",
+}

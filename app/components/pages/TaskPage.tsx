@@ -1,10 +1,13 @@
-import { selectTasks } from '@/redux/features/task/taskSlice';
-import { useAppSelector } from '@/redux/hook';
+import { selectTasks, updateFilter } from '@/redux/features/task/taskSlice';
+import { useAppDispatch, useAppSelector } from '@/redux/hook';
 import TaskCard from './module/TaskCard';
 import { AddTaskModal } from './module/AddTaskModal';
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { filterTask } from '@/types/types';
 
 const TaskPage = () => {
+
+     const dispatch = useAppDispatch();
 
     const tasks = useAppSelector(selectTasks);
     console.log(tasks);
@@ -19,10 +22,10 @@ const TaskPage = () => {
                     <div>
                         <Tabs defaultValue="all" className="w-[400px]">
                             <TabsList className="grid w-full grid-cols-4">
-                                <TabsTrigger value="all">All</TabsTrigger>
-                                <TabsTrigger value="high">High</TabsTrigger>
-                                <TabsTrigger value="medium">Medium</TabsTrigger>
-                                <TabsTrigger value="low">Low</TabsTrigger>
+                                <TabsTrigger onClick={() => dispatch(updateFilter(filterTask.All))} value="all">All</TabsTrigger>
+                                <TabsTrigger onClick={() => dispatch(updateFilter(filterTask.High))} value="high">High</TabsTrigger>
+                                <TabsTrigger onClick={() => dispatch(updateFilter(filterTask.Medium))} value="medium">Medium</TabsTrigger>
+                                <TabsTrigger onClick={() => dispatch(updateFilter(filterTask.Low))} value="low">Low</TabsTrigger>
                             </TabsList>
                         </Tabs>
                     </div>
