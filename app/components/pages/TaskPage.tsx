@@ -10,7 +10,7 @@ const TaskPage = () => {
      const dispatch = useAppDispatch();
 
     const tasks = useAppSelector(selectTasks);
-    console.log(tasks);
+    // console.log(tasks);
 
 
     return (

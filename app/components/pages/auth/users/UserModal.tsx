@@ -2,16 +2,20 @@ import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { useAppDispatch } from "@/redux/hook";
 import type { IUser } from "@/types/types";
 import { useForm, type FieldValues, type SubmitHandler } from "react-hook-form";
+import { addUser } from "./UserSlice";
 
 const UserModal = () => {
+
+    const dispatch = useAppDispatch();
 
     const { register, handleSubmit,  formState: { errors } } = useForm<IUser>()
 
     const onSubmit: SubmitHandler<FieldValues> = (data) => {
-        // dispatch(addTask(data as ITask))
-        console.log(data);
+        dispatch(addUser(data as IUser))
+        // console.log(data);
         
     };
 

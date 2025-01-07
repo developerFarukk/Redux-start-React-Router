@@ -30,3 +30,6 @@ export interface IUser {
     name: string;
     email: string;
 }
+
+
+export type DraftUser = Pick<IUser, "name" | "email" >;
