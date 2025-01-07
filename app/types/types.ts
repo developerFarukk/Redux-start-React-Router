@@ -23,3 +23,10 @@ export enum filterTask {
     Medium = "medium",
     Low = "low",
 }
+
+
+export interface IUser {
+    id: string;
+    name: string;
+    email: string;
+}

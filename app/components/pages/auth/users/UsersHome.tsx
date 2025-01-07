@@ -1,4 +1,5 @@
 import { AddTaskModal } from "../../module/AddTaskModal";
+import UserModal from "./UserModal";
 
 
 
@@ -20,7 +21,7 @@ const UsersHome = () => {
                         </Tabs>
                     </div> */}
                     <div>
-                        <AddTaskModal></AddTaskModal>
+                        <UserModal></UserModal>
                     </div>
                 </div>
             </div>
