@@ -25,11 +25,11 @@ const UsersHome = () => {
             </div>
 
             {/* Card Task */}
-            <div>
+            <div className="grid lg:grid-cols-3 md:grid-cols-2">
                 {
                     users.map((user) => (
                         // <userCard task={task} key={task.id}></userCard>
-                        <UserCard user={user} key={user.id}></UserCard>
+                        <UserCard user={user} key={user.id} ></UserCard>
                     ))
                 }
             </div>

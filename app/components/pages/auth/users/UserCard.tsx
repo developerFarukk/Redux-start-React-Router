@@ -14,9 +14,10 @@ const UserCard = ({ user }: IProps) => {
     const dispatch = useAppDispatch();
 
     return (
-        <div>
-            <div className="p-2">
-                <div className="border px-5 py-3 rounded-md">
+        <div className="">
+            <div className="p-2 ">
+
+                <div className="border px-5 py-3 rounded-md max-w-xl ">
                     <div className="flex justify-between items-center">
                         <h1  >{user.name}</h1>
                         <div className="flex gap-3 items-center">
