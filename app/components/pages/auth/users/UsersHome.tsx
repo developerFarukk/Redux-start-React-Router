@@ -2,8 +2,7 @@ import { useAppSelector } from "@/redux/hook";
 import { AddTaskModal } from "../../module/AddTaskModal";
 import UserModal from "./UserModal";
 import { selectUsers } from "./UserSlice";
-import UserCard from "./userCard";
-
+import UserCard from "./UserCard";
 
 
 const UsersHome = () => {
