@@ -24,7 +24,7 @@ const UsersHome = () => {
                 </div>
             </div>
 
-            {/* Card Task */}
+            {/* Card Tasks */}
             <div className="grid lg:grid-cols-3 md:grid-cols-2">
                 {
                     users.map((user) => (
